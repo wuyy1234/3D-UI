@@ -1,11 +1,11 @@
 # 3D-UI
 #  UI 效果制作
 ## Quest Log 公告牌
-![这里写图片描述](https://img-blog.csdn.net/20180603221814195?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXk3NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![这里写图片描述](https://img-blog.csdn.net/20180603221814195?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXk3NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)  
 ### 主要思路与细节
-> 做得还比较简单，细节还要修改
-> 主要采用协程和mono.StartCoroutine以及callback()实现动画效果，同时也使得代码简洁。
-> 关键代码如下
+> 做得还比较简单，细节还要修改  
+> 主要采用协程和mono.StartCoroutine以及callback()实现动画效果，同时也使得代码简洁。  
+> 关键代码如下  
 
 
 ```
@@ -13,8 +13,8 @@
 Button btn=this.GetComponent<Button>();
 btn.onClick.AddListener (OnClick);
 ```
-> mono.StartCoroutine 部分
-> 因为用了callback()所以调用fold时候的StartCoroutine 的参数留意一下
+> mono.StartCoroutine 部分  
+> 因为用了callback()所以调用fold时候的StartCoroutine 的参数留意一下  
 
 ```
 void OnClick() {
@@ -32,10 +32,10 @@ void OnClick() {
 	}
 }
 ```
-> 协程部分
-> 协程部分的yield return null;不要忘记了 
-> 为了持续时间加上了callback，这个看个人需求添加
-> for (float f = time; f >= 0.0f; f -= Time.deltaTime)的实际作用可以等于Update()
+> 协程部分  
+> 协程部分的yield return null;不要忘记了  
+> 为了持续时间加上了callback，这个看个人需求添加  
+> for (float f = time; f >= 0.0f; f -= Time.deltaTime)的实际作用可以等于Update()  
 ```
 IEnumerator unfold(float time,Action callback){
 	//Debug.Log ("unfold");
